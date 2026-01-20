@@ -1,6 +1,7 @@
 Resource Allocation Management System (MERN Stack)
 
 A full-stack Resource Allocation Management System built using the MERN stack, allowing administrators to manage resources and handle allocation requests, while users can request, track, and view the status of allocated resources in real time.
+live vercel link - resource-allocation-management-syst.vercel.app
 
 📌 Live Backend Server
 
