@@ -1,0 +1,85 @@
+.dashboard {
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 20px;
+  color: white;
+}
+
+/* HEADER */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.logout-btn {
+  background: #ff6b6b;
+}
+
+/* CARDS */
+.card {
+  background: #1a1a1a;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+/* INPUT ROW */
+.row {
+  display: flex;
+  gap: 12px;
+}
+
+/* LISTS */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #222;
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* BADGES */
+.badge {
+  margin-left: auto;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.badge.available {
+  background: rgba(0, 255, 156, 0.15);
+  color: #00ff9c;
+}
+
+.badge.allocated {
+  background: rgba(255, 107, 107, 0.15);
+  color: #ff6b6b;
+}
+
+.badge.pending {
+  background: rgba(255, 234, 167, 0.15);
+  color: #ffeaa7;
+}
+
+.badge.approved {
+  background: rgba(85, 239, 196, 0.15);
+  color: #55efc4;
+}
+
+/* COLLAPSIBLE */
+details summary {
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
