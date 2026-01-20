@@ -83,3 +83,21 @@ details summary {
   font-weight: 600;
   margin-bottom: 15px;
 }
+
+.approved {
+  color: #4ade80;
+}
+
+.rejected {
+  color: #f87171;
+}
+
+.pending {
+  color: #facc15;
+}
+
+button.reject {
+  background: #dc2626;
+  margin-left: 10px;
+}
+

@@ -16,6 +16,7 @@ export default function UserDashboard() {
     await api.post("/allocations", { resourceId });
     fetchData();
   };
+  
 
   const logout = () => {
     localStorage.clear();

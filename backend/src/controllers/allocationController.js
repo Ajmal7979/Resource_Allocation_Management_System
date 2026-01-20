@@ -42,6 +42,28 @@ exports.approveAllocation = async (req, res) => {
   res.json({ message: "Allocation approved" });
 };
 
+exports.rejectAllocation = async (req, res) => {
+  try {
+    const allocation = await Allocation.findById(req.params.id).populate("resource");
+
+    if (!allocation) {
+      return res.status(404).json({ message: "Allocation not found" });
+    }
+
+    allocation.status = "REJECTED";
+    await allocation.save();
+
+    // Make resource available again
+    allocation.resource.isAllocated = false;
+    await allocation.resource.save();
+
+    res.json({ message: "Allocation rejected" });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+
 // ADMIN → view all allocations
 exports.getAllocations = async (req, res) => {
   const allocations = await Allocation.find()

@@ -25,6 +25,11 @@ export default function AdminDashboard() {
     fetchAll();
   };
 
+  const reject = async (id) => {
+    await api.put(`/allocations/${id}/reject`);
+    fetchAll();
+  };
+
   const logout = () => {
     localStorage.clear();
     navigate("/login");
@@ -36,6 +41,7 @@ export default function AdminDashboard() {
 
   return (
     <div className="dashboard">
+
       {/* HEADER */}
       <header className="dashboard-header">
         <h2>Admin Dashboard</h2>
@@ -70,7 +76,7 @@ export default function AdminDashboard() {
         </ul>
       </section>
 
-      {/* ALLOCATED RESOURCES (COLLAPSIBLE) */}
+      {/* ALLOCATED RESOURCES */}
       <section className="card">
         <details>
           <summary>Allocated Resources</summary>
@@ -87,7 +93,7 @@ export default function AdminDashboard() {
         </details>
       </section>
 
-      {/* ALLOCATION REQUESTS (COLLAPSIBLE) */}
+      {/* ALLOCATION REQUESTS */}
       <section className="card">
         <details open>
           <summary>Allocation Requests</summary>
@@ -95,20 +101,27 @@ export default function AdminDashboard() {
             {allocations.map(a => (
               <li key={a._id}>
                 {a.resource?.name}
+
                 <span className={`badge ${a.status.toLowerCase()}`}>
                   {a.status}
                 </span>
 
                 {a.status === "PENDING" && (
-                  <button onClick={() => approve(a._id)}>
-                    Approve
-                  </button>
+                  <div className="actions">
+                    <button onClick={() => approve(a._id)}>
+                      Approve
+                    </button>
+                    <button className="reject" onClick={() => reject(a._id)}>
+                      Reject
+                    </button>
+                  </div>
                 )}
               </li>
             ))}
           </ul>
         </details>
       </section>
+
     </div>
   );
 }
